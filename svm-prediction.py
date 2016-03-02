@@ -49,7 +49,9 @@ def svr_main(X, Y):
         y_pred = clf.predict([TRAIN_SIZE+1+i])
         predict_list.append(y_pred)
 
-    print "final mean_squared_error:%s"%mean_squared_error(Y_test, predict_list)
+    print "root of mean_squared_error:%s"%np.sqrt(mean_squared_error(Y_test, predict_list))
+    origin_data = Y_test
+    print "origin data:%s"%origin_data
     plt.plot([ x for x in xrange(TRAIN_SIZE+1, TRAIN_SIZE+TEST_SIZE+1)], predict_list, linestyle='-', color='red', label='prediction model')  
     plt.plot(X_test, Y_test, linestyle='-', color='blue', label='actual model') 
     plt.legend(loc=1, prop={'size': 12})
@@ -63,7 +65,5 @@ if __name__ == "__main__":
     end = time.clock()
     run_time = end - start
     
-    origin_data = Y[TRAIN_SIZE:]
-    print "origin data:%s"%origin_data
     print "The program run time:%s"%run_time
     
