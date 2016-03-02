@@ -16,6 +16,7 @@ from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import pandas as pd
+import time
 
 TRAIN_SIZE = 960
 TEST_SIZE = 480
@@ -36,8 +37,10 @@ def svr_main(X, Y):
     #y_pred = clf.predict(X_test)
     #plt.plot(X_test, y_pred, linestyle='-', color='red') 
 
-    #clf = GradientBoostingRegressor(n_estimators=100,max_depth=1)
     clf = GradientBoostingRegressor(n_estimators=100,max_depth=1)
+    #clf = DecisionTreeRegressor(max_depth=25)
+    #clf = ExtraTreesRegressor(n_estimators=2000,max_depth=14)
+    #clf = xgb.XGBRegressor(n_estimators=2000,max_depth=25)
     #clf = RandomForestRegressor(n_estimators=1000,max_depth=26,n_jobs=7)
     predict_list = []
     for i in xrange(TEST_SIZE):
@@ -46,6 +49,7 @@ def svr_main(X, Y):
         y_pred = clf.predict([TRAIN_SIZE+1+i])
         predict_list.append(y_pred)
 
+    print "final mean_squared_error:%s"%mean_squared_error(Y_test, predict_list)
     plt.plot([ x for x in xrange(TRAIN_SIZE+1, TRAIN_SIZE+TEST_SIZE+1)], predict_list, linestyle='-', color='red', label='prediction model')  
     plt.plot(X_test, Y_test, linestyle='-', color='blue', label='actual model') 
     plt.legend(loc=1, prop={'size': 12})
@@ -53,6 +57,13 @@ def svr_main(X, Y):
 
 
 if __name__ == "__main__":
+    start = time.clock()
     X, Y = get_data("data1.csv")
     svr_main(X,Y)
+    end = time.clock()
+    run_time = end - start
+    
+    origin_data = Y[TRAIN_SIZE:]
+    print "origin data:%s"%origin_data
+    print "The program run time:%s"%run_time
     
