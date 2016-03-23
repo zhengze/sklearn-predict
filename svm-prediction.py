@@ -16,10 +16,11 @@ from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import pandas as pd
+import xgboost as xgb
 import time
 
-TRAIN_SIZE = 960
-TEST_SIZE = 480
+TRAIN_SIZE = 96*int(raw_input('Input train day:'))
+TEST_SIZE = 96*int(raw_input('Input test day:'))
 
 def get_data(file_name):
     Y_parameters = pd.read_csv(file_name).fillna(-1).drop("day",axis=1).values.ravel()
@@ -56,7 +57,7 @@ def svr_main(X, Y):
     plt.plot([ x for x in xrange(TRAIN_SIZE+1, TRAIN_SIZE+TEST_SIZE+1)], predict_list, linestyle='-', color='red', label='prediction model')  
     plt.plot(X_test, Y_test, linestyle='-', color='blue', label='actual model') 
     plt.legend(loc=1, prop={'size': 12})
-    plt.show()
+    #plt.show()
 
 
 if __name__ == "__main__":
