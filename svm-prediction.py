@@ -33,12 +33,12 @@ def svr_main(X, Y):
     X_test = X[TRAIN_SIZE:]
     Y_test = Y[TRAIN_SIZE:]
 
-    #clf = SVR(kernel='rbf', C=1e3, gamma=0.1)
+    clf = SVR(kernel='rbf', C=1e3, gamma=0.00001)
     #clf.fit(X_train,Y_train)
     #y_pred = clf.predict(X_test)
     #plt.plot(X_test, y_pred, linestyle='-', color='red') 
 
-    clf = GradientBoostingRegressor(n_estimators=100,max_depth=1)
+    #clf = GradientBoostingRegressor(n_estimators=100,max_depth=1)
     #clf = DecisionTreeRegressor(max_depth=25)
     #clf = ExtraTreesRegressor(n_estimators=2000,max_depth=14)
     #clf = xgb.XGBRegressor(n_estimators=2000,max_depth=25)
@@ -62,7 +62,7 @@ def svr_main(X, Y):
 
 if __name__ == "__main__":
     start = time.clock()
-    X, Y = get_data("data1.csv")
+    X, Y = get_data("powerdata.csv")
     svr_main(X,Y)
     end = time.clock()
     run_time = end - start
