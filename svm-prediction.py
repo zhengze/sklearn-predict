@@ -19,12 +19,12 @@ import pandas as pd
 import xgboost as xgb
 import time
 
-TRAIN_SIZE = 96*int(raw_input('Input train day:'))
-TEST_SIZE = 96*int(raw_input('Input test day:'))
+TRAIN_SIZE = 96*int(input('Input train day:'))
+TEST_SIZE = 96*int(input('Input test day:'))
 
 def get_data(file_name):
     Y_parameters = pd.read_csv(file_name).fillna(-1).drop("day",axis=1).values.ravel()
-    X_parameters = [ [x] for x in xrange(len(Y_parameters))]
+    X_parameters = [ [x] for x in range(len(Y_parameters))]
     return X_parameters, Y_parameters
 
 def svr_main(X, Y):
@@ -44,17 +44,17 @@ def svr_main(X, Y):
     #clf = xgb.XGBRegressor(n_estimators=2000,max_depth=25)
     #clf = RandomForestRegressor(n_estimators=1000,max_depth=26,n_jobs=7)
     predict_list = []
-    for i in xrange(TEST_SIZE):
-        X = [ [x] for x in xrange(i, TRAIN_SIZE+i)]
+    for i in range(TEST_SIZE):
+        X = [ [x] for x in range(i, TRAIN_SIZE+i)]
         clf.fit(X, Y[i:TRAIN_SIZE+i])
-        y_pred = clf.predict([TRAIN_SIZE+1+i])
+        y_pred = clf.predict(np.array([TRAIN_SIZE+1+i]).reshape(1, -1))
         predict_list.append(y_pred)
 
-    print "mean_squared_error:%s"%mean_squared_error(Y_test, predict_list)
-    print "sqrt of mean_squared_error:%s"%np.sqrt(mean_squared_error(Y_test, predict_list))
+    #print("mean_squared_error:%s"%mean_squared_error(Y_test, predict_list))
+    #print("sqrt of mean_squared_error:%s"%np.sqrt(mean_squared_error(Y_test, predict_list)))
     origin_data = Y_test
-    print "origin data:%s"%origin_data
-    plt.plot([ x for x in xrange(TRAIN_SIZE+1, TRAIN_SIZE+TEST_SIZE+1)], predict_list, linestyle='-', color='red', label='prediction model')  
+    #print("origin data:%s"%origin_data)
+    plt.plot([ x for x in range(TRAIN_SIZE+1, TRAIN_SIZE+TEST_SIZE+1)], predict_list, linestyle='-', color='red', label='prediction model')  
     plt.plot(X_test, Y_test, linestyle='-', color='blue', label='actual model') 
     plt.legend(loc=1, prop={'size': 12})
     plt.show()
@@ -67,5 +67,5 @@ if __name__ == "__main__":
     end = time.clock()
     run_time = end - start
     
-    print "The program run time:%s"%run_time
+    print("The program run time:%s"%run_time)
     

@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "http://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = false
+
+[dev-packages]
+
+[packages]
+numpy = "*"
+sklearn = "*"
+pandas = "*"
+xgboost = "*"
+matplotlib = "*"
+
+[requires]
+python_version = "3.7"
