@@ -9,9 +9,9 @@
 * python 3.7.*
 
 ## 安装
-* `chmod u+x install.sh`
-* `./install.sh`
-* `vim ~/.bash_profile` 
+* `sudo chmod u+x install.sh`
+* `sudo bash ./install.sh`
+* `sudo vim ~/.bash_profile` 
 ```
    export PATH="$HOME/.pyenv/bin:$PATH"  
    eval "$(pyenv init -)" 
@@ -19,15 +19,24 @@
 ```
 * `source ~/.bash_profile`
 
-## python3.7 version virtualenv
+## python3.7.4 version virtualenv && install python libraries
 ```pyenv install 3.7.4
    pyenv virtualenv 3.7.4 svm-prediction-venv
    pyenv activate svm-prediction-venv
-   pipenv install`
+   pipenv install
 ```
 
 ## 调用
 * `python predict.py --help`
+```
+Usage: predict.py [OPTIONS]
+
+Options:
+  --train INTEGER  train size(day).
+  --test INTEGER   test size(day).
+  --filepath TEXT  file path
+  --help           Show this message and exit.
+```
 
 ## 效果图
 * SVR chart   
