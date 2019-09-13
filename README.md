@@ -29,6 +29,6 @@
 
 ## 效果图
 * SVR chart 
-![SVR chart](https://github.com/zhengze/svm-prediction.git/images/svr.png)
+![SVR chart](https://github.com/zhengze/svm-prediction.git/develop/images/svr.png)
 * GradientBoostingRegressor chart 
-![GradientBoostingRegressor chart](https://github.com/zhengze/svm-prediction.git/images/jueceshu.png)
+![GradientBoostingRegressor chart](https://github.com/zhengze/svm-prediction.git/develop/images/jueceshu.png)
