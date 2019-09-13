@@ -28,7 +28,7 @@
 * `python predict.py --help`
 
 ## 效果图
-* SVR chart 
-![SVR chart](https://github.com/zhengze/svm-prediction/blob/develop/images/svr.png)
-* GradientBoostingRegressor chart 
+* SVR chart   
+![SVR chart](https://github.com/zhengze/svm-prediction/blob/develop/images/svr.png)  
+* GradientBoostingRegressor chart   
 ![GradientBoostingRegressor chart](https://github.com/zhengze/svm-prediction/blob/develop/images/jueceshu.png)
