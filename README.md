@@ -4,8 +4,31 @@
 ## 数据
 *按powerdata.csv的格式组织,程序调用的是"powerdata.csv"文件,文件中数据每列为间隔15分钟的值，一天24小时，一共24乘4列。如果时间格式不是这样的，可以在svm-prediction中开头修改“96”这个值做调整
 
-## 安装
-* `pipenv install`
-## 调用
-* `python svm-prediction.py`
+## 环境
+* ubuntu 18.04
+* python 3.7.*
 
+## 安装
+* `chmod u+x install.sh`
+* `./install.sh`
+* `vim ~/.bash_profile` 
+  * `export PATH="$HOME/.pyenv/bin:$PATH"` 
+  * `eval "$(pyenv init -)"`
+  * `eval "$(pyenv virtualenv-init -)`
+  * `source ~/.bash_profile`
+
+## python3.7 version virtualenv
+```pyenv install 3.7.4
+   pyenv virtualenv 3.7.4 svm-prediction-venv`
+   pyenv activate svm-prediction-venv`
+   pipenv install`
+```
+
+## 调用
+* `python predict.py --help`
+
+## 效果图
+* SVR chart 
+![SVR chart](https://github.com/zhengze/svm-prediction.git/images/svr.png)
+* GradientBoostingRegressor chart 
+![GradientBoostingRegressor chart](https://github.com/zhengze/svm-prediction.git/images/jueceshu.png)

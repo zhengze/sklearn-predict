@@ -11,6 +11,7 @@ sklearn = "*"
 pandas = "*"
 xgboost = "*"
 matplotlib = "*"
+click = "*"
 
 [requires]
 python_version = "3.7"
