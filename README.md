@@ -12,10 +12,11 @@
 * `chmod u+x install.sh`
 * `./install.sh`
 * `vim ~/.bash_profile` 
-  ```export PATH="$HOME/.pyenv/bin:$PATH"  
-     eval "$(pyenv init -)" 
-     eval "$(pyenv virtualenv-init -)  
-  ```
+```
+   export PATH="$HOME/.pyenv/bin:$PATH"  
+   eval "$(pyenv init -)" 
+   eval "$(pyenv virtualenv-init -)  
+```
 * `source ~/.bash_profile`
 
 ## python3.7 version virtualenv
