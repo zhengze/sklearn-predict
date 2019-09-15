@@ -30,7 +30,7 @@ def get_data(file_name):
 @click.command()
 @click.option('--train', default=0, help='train size(day).')
 @click.option('--test', default=0, help='test size(day).')
-@click.option('--filepath', help='file path')
+@click.option('--filepath', help='file path.')
 def main(train, test, filepath):
     if not filepath:
         click.echo("need filepath")
